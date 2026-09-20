@@ -2598,14 +2598,24 @@ p {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-10);
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-8) var(--space-6);
   margin-bottom: var(--space-10);
+}
+
+@media (max-width: 639px) {
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (min-width: 640px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-brand {
+    grid-column: auto;
   }
 }
 
@@ -4396,8 +4406,8 @@ p {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6) var(--space-4);
     text-align: center;
   }
 
@@ -4565,9 +4575,12 @@ p {
   }
 
   /* Ensure tap targets are large enough */
-  .nav-link,
-  .footer-links a {
+  .nav-link {
     padding: var(--space-3) var(--space-2);
+  }
+
+  .footer-links a {
+    padding: var(--space-1) var(--space-2);
   }
 
   /* Smooth scrolling for iOS */
